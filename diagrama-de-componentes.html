@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Componentes - Sistema Restaurante Maranatha</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .contenedor-diagrama {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 15px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .diagrama-arquitectura {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            padding: 20px;
+            background: #ecf0f1;
+            border: 2px solid #bdc3c7;
+            border-radius: 10px;
+        }
+
+        .capa {
+            border: 2px solid;
+            border-radius: 8px;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .capa-frontend {
+            border-color: #3498db;
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+        }
+
+        .capa-controladores {
+            border-color: #e74c3c;
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+        }
+
+        .capa-servicios {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+        }
+
+        .capa-repositorios {
+            border-color: #27ae60;
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+        }
+
+        .capa-basedatos {
+            border-color: #8e44ad;
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+        }
+
+        .titulo-capa {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .componente {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 3px;
+            font-size: 12px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .fila-componentes {
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .flecha {
+            align-self: center;
+            font-size: 18px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.9);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid #34495e;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .tecnologia {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.1);
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 10px;
+            color: #ffffff;
+        }
+
+        .flujo-descripcion {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+        }
+
+        .titulo-flujo {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .item-flujo {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .item-flujo strong {
+            color: #e74c3c;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .contenedor-diagrama {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-diagrama">
+        <div class="titulo">DIAGRAMA DE COMPONENTES</div>
+        <div class="subtitulo">Sistema de Gestión Integral del Restaurante Maranatha</div>
+
+        <div class="diagrama-arquitectura">
+
+            <div class="capa capa-frontend">
+                <div class="titulo-capa">🌐 CAPA DE PRESENTACIÓN (FRONTEND)</div>
+                <div class="fila-componentes">
+                    <div class="componente">login.html</div>
+                    <div class="componente">dashboard-cliente.html</div>
+                    <div class="componente">admin.html</div>
+                    <div class="componente">gestion-de-menus.html</div>
+                    <div class="componente">mesas.html</div>
+                    <div class="componente">reporte-de-ventas.html</div>
+                </div>
+                <div class="fila-componentes">
+                    <div class="componente">HTML5 + CSS3 + JavaScript</div>
+                    <div class="componente">Bootstrap 5.3</div>
+                    <div class="componente">Chart.js</div>
+                    <div class="componente">Font Awesome</div>
+                </div>
+                <div class="tecnologia">Interfaz Web Responsiva</div>
+            </div>
+
+            <div class="flecha">⬇ API HTTP/REST ⬇</div>
+
+            <div class="capa capa-controladores">
+                <div class="titulo-capa">🎮 CAPA DE CONTROLADORES (API REST)</div>
+                <div class="fila-componentes">
+                    <div class="componente">ControladorUsuario</div>
+                    <div class="componente">ControladorPedido</div>
+                    <div class="componente">ControladorPlato</div>
+                    <div class="componente">ControladorMesa</div>
+                    <div class="componente">ControladorReserva</div>
+                    <div class="componente">ControladorReporte</div>
+                </div>
+                <div class="fila-componentes">
+                    <div class="componente">@RestController</div>
+                    <div class="componente">@RequestMapping</div>
+                    <div class="componente">Spring Security</div>
+                    <div class="componente">Swagger/OpenAPI</div>
+                </div>
+                <div class="tecnologia">Controladores Spring Boot</div>
+            </div>
+
+            <div class="flecha">⬇ Lógica de Negocio ⬇</div>
+
+            <div class="capa capa-servicios">
+                <div class="titulo-capa">⚙️ CAPA DE SERVICIOS (LÓGICA DE NEGOCIO)</div>
+                <div class="fila-componentes">
+                    <div class="componente">ServicioUsuario</div>
+                    <div class="componente">ServicioPedido</div>
+                    <div class="componente">ServicioPlato</div>
+                    <div class="componente">ServicioReserva</div>
+                    <div class="componente">ServicioReporte</div>
+                </div>
+                <div class="fila-componentes">
+                    <div class="componente">@Service</div>
+                    <div class="componente">@Transactional</div>
+                    <div class="componente">BCrypt</div>
+                    <div class="componente">Apache POI</div>
+                    <div class="componente">iText PDF</div>
+                </div>
+                <div class="tecnologia">Reglas de Negocio y Validaciones</div>
+            </div>
+
+            <div class="flecha">⬇ Acceso a Datos ⬇</div>
+
+            <div class="capa capa-repositorios">
+                <div class="titulo-capa">🗄️ CAPA DE REPOSITORIOS (ACCESO A DATOS)</div>
+                <div class="fila-componentes">
+                    <div class="componente">RepositorioUsuario</div>
+                    <div class="componente">RepositorioPedido</div>
+                    <div class="componente">RepositorioPlato</div>
+                    <div class="componente">RepositorioMesa</div>
+                    <div class="componente">RepositorioReserva</div>
+                    <div class="componente">RepositorioMenu</div>
+                </div>
+                <div class="fila-componentes">
+                    <div class="componente">Spring Data JPA</div>
+                    <div class="componente">JpaRepository</div>
+                    <div class="componente">Consultas Personalizadas</div>
+                </div>
+                <div class="tecnologia">JPA + Hibernate ORM</div>
+            </div>
+
+            <div class="flecha">⬇ Conexión JDBC ⬇</div>
+
+            <div class="capa capa-basedatos">
+                <div class="titulo-capa">🗃️ CAPA DE BASE DE DATOS</div>
+                <div class="fila-componentes">
+                    <div class="componente">usuario</div>
+                    <div class="componente">pedido</div>
+                    <div class="componente">plato</div>
+                    <div class="componente">mesa</div>
+                    <div class="componente">reserva</div>
+                    <div class="componente">pedido_plato</div>
+                    <div class="componente">menu</div>
+                    <div class="componente">pago</div>
+                </div>
+                <div class="fila-componentes">
+                    <div class="componente">MySQL 8.0</div>
+                    <div class="componente">InnoDB Engine</div>
+                    <div class="componente">UTF-8 Charset</div>
+                </div>
+                <div class="tecnologia">Base de Datos Relacional</div>
+            </div>
+        </div>
+
+        <div class="flujo-descripcion">
+            <div class="titulo-flujo">🔄 Flujo de Datos Principales</div>
+            <div class="item-flujo"><strong>1. Autenticación:</strong> Cliente → POST /api/usuarios/validar → ControladorUsuario → ServicioUsuario → RepositorioUsuario → MySQL → Verificación BCrypt → Sesión Spring Security</div>
+            <div class="item-flujo"><strong>2. Creación de Pedido:</strong> Cliente → POST /api/pedidos/nuevo → ControladorPedido → ServicioPedido → [Validaciones + RepositorioPlato] → RepositorioPedido → MySQL → Respuesta JSON</div>
+            <div class="item-flujo"><strong>3. Gestión de Reservas:</strong> Cliente → POST /api/reservas → ControladorReserva → ServicioReserva → [RepositorioMesa + RepositorioReserva] → MySQL → Confirmación</div>
+            <div class="item-flujo"><strong>4. Generación de Reportes:</strong> Admin → GET /api/reportes/ventas → ControladorReporte → ServicioReporte → RepositorioPedido → Cálculos → Apache POI/iText → Excel/PDF</div>
+            <div class="item-flujo"><strong>5. Gestión de Platos:</strong> Admin → CRUD /api/platos → ControladorPlato → ServicioPlato → RepositorioPlato → MySQL → Subida de Archivos (imágenes)</div>
+        </div>
+    </div>
+</body>
+</html>
